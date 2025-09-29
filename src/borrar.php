@@ -1,12 +1,13 @@
+
 <?php
 require("conexion.php");
 
-$dni = $_POST["dni"];
+$idObra = $_POST["idObra"];
 
-// Borra un cliente con un determinado DNI
-// DELETE FROM cliente WHERE dni="12345"
+// Borra una obra con un determinado id
+// DELETE FROM obra WHERE dni="12345"
 
-$borrado = "DELETE FROM cliente WHERE dni='$dni'";
+$borrado = "DELETE FROM obra WHERE id_obra='$idObra'";
 mysqli_query($conexion, $borrado);
 
 header('Location: index.php');

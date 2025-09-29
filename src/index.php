@@ -24,17 +24,17 @@ require("ordenar.php");
     <div class="card">
 
       <div id="titulo">
-        <h1 class="text-center">Banca Turing</h1>
+        <h1 class="text-center">Actuaciones y obras</h1>
       </div>
 
-      <img src="./img/banco-turing.jpg" alt="turing-cars">
       <?php
       $accion = $_POST["accion"] ?? "";
-      $dni = $_POST["dni"] ?? "";
-      $nombre = $_POST["nombre"] ?? "";
-      $direccion = $_POST["direccion"] ?? "";
-      $telefono = $_POST["telefono"] ?? "";
-      $dniAntiguo = $_POST["dniAntiguo"] ?? "";
+      $idObra = $_POST["id_obra"] ?? "";
+      $titulo = $_POST["titulo"] ?? "";
+      $anio = $_POST["anio"] ?? "";
+      $compositor = $_POST["compositor"] ?? "";
+      $libretista = $_POST["libretista"] ?? "";
+      $idObraAntiguo = $_POST["id_obraAntiguo"] ?? "";
 
       if (!empty($_SESSION["error"])) {
         $error = $_SESSION["error"]; // Guardamos el valor
@@ -44,33 +44,35 @@ require("ordenar.php");
 
 
       // Listado de clientes //////////////////////////////////////////////////
-      $consulta = mysqli_query($conexion, "SELECT dni, nombre, direccion, telefono FROM cliente ORDER BY $order");
+      $consultaObra = mysqli_query($conexion, "SELECT id_obra, titulo, anio, compositor, libretista FROM obra ORDER BY $order");
+      
       ?>
 
       <table class="table table-striped">
         <tr>
-          <th><a href="?orderby=dni">DNI ⬆</a></th>
-          <th><a href="?orderby=nombre">Nombre ⬆</a></th>
-          <th><a href="?orderby=direccion">Dirección ⬆</a></th>
-          <th><a href="?orderby=dni">Teléfono ⬆</a></th>
+          <th><a href="?orderby=dni">Título ⬆</a></th>
+          <th><a href="?orderby=nombre">Año ⬆</a></th>
+          <th><a href="?orderby=direccion">Compositor ⬆</a></th>
+          <th><a href="?orderby=dni">Letrista ⬆</a></th>
           <th></th>
           <th></th>
         </tr>
         <?php
 
-        while ($registro = mysqli_fetch_array($consulta)) {
+        while ($registro = mysqli_fetch_array($consultaObra)) {
 
-          if (($accion == "modificar") && ($dni == $registro["dni"])) {
+          if (($accion == "modificar") && ($idObra == $registro["id_obra"])) {
             // Fila que queremos modificar
         ?>
             <tr class="fila-modificable">
               <form action="modificar.php" method="post">
-                <td><input type="text" name="dni" value="<?= $registro["dni"] ?>"></td>
-                <td><input type="text" name="nombre" value="<?= $registro["nombre"] ?>"></td>
-                <td><input type="text" name="direccion" value="<?= $registro["direccion"] ?>"></td>
-                <td><input type="text" name="telefono" value="<?= $registro["telefono"] ?>"></td>
+                <td><input type="text" name="titulo" value="<?= $registro["titulo"] ?>"></td>
+                <td><input type="text" name="anio" value="<?= $registro["anio"] ?>"></td>
+                <td><input type="text" name="compositor" value="<?= $registro["compositor"] ?>"></td>
+                <td><input type="text" name="libretista" value="<?= $registro["libretista"] ?>"></td>
+                <td><input type="hidden" name="idObra" value="<?= $registro["id_obra"] ?>"></td>
                 <td>
-                  <input type="hidden" name="dniAntiguo" value="<?= $registro["dni"] ?>">
+                  <input type="hidden" name="idObraAntiguo" value="<?= $registro["id_obraAntiguo"] ?>">
                   <button type="submit" class="btn btn-success">
                     <i class="bi bi-check-lg"></i>
                     Aceptar
@@ -91,15 +93,15 @@ require("ordenar.php");
             // Fila normal
           ?>
             <tr>
-              <td><?= $registro["dni"] ?></td>
-              <td><?= $registro["nombre"] ?></td>
-              <td><?= $registro["direccion"] ?></td>
-              <td><?= $registro["telefono"] ?></td>
+              <td><?= $registro["titulo"] ?></td>
+              <td><?= $registro["anio"] ?></td>
+              <td><?= $registro["compositor"] ?></td>
+              <td><?= $registro["libretista"] ?></td>
               <td>
                 <!-- Formulario para borrar: redirige la acción a borrar.php -->
                 <form action="borrar.php" method="post">
-                  <input type="hidden" name="dni" value="<?= $registro["dni"] ?>">
-                  <button  onclick="return confirmarBorrado('<?= $registro['dni'] ?>')"
+                  <input type="hidden" name="idObra" value="<?= $registro["id_obra"] ?>">
+                  <button  onclick="return confirmarBorrado('<?= $registro['id_obra'] ?>')"
                     type="submit"
                     class="btn btn-danger"
                     <?= $accion == "modificar" ? "disabled" : "" ?>>
@@ -111,7 +113,7 @@ require("ordenar.php");
               <td>
                 <form action="#" method="post">
                   <input type="hidden" name="accion" value="modificar">
-                  <input type="hidden" name="dni" value="<?= $registro["dni"] ?>">
+                  <input type="hidden" name="idObra" value="<?= $registro["id_obra"] ?>">
                   <button
                     type="submit"
                     class="btn btn-primary"
@@ -131,10 +133,10 @@ require("ordenar.php");
           <!-- tr>td*4>input -->
           <tr>
             <form action="agregar.php" method="post">
-              <td><input type="text" name="dni" required></td>
-              <td><input type="text" name="nombre" required></td>
-              <td><input type="text" name="direccion" required></td>
-              <td><input type="text" name="telefono" required></td>
+              <td><input type="text" name="titulo" required></td>
+              <td><input type="text" name="anio" required></td>
+              <td><input type="text" name="compositor" required></td>
+              <td><input type="text" name="libretista" required></td>
               <td>
                 <button type="submit" class="btn btn-success">
                   <i class="bi bi-plus"></i>
