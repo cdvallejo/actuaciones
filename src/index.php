@@ -1,6 +1,6 @@
 <?php
-session_start();
 require("conexion.php");
+require("inicializacionDatos.php");
 ?>
 
 
@@ -23,9 +23,9 @@ require("conexion.php");
     <div class="card">
 
       <div id="titulo">
-        <h1 class="text-center">Actuaciones</h1>
+        <h1 class="text-center">Actuaciones 💃</h1>
         <?php include "listadoActuaciones.php"; ?>
-        <h1 class="text-center">Obras</h1>
+        <h1 class="text-center">Obras 🎭</h1>
         <?php include "listadoObras.php"; ?>
       </div>
 
