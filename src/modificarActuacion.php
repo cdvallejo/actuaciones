@@ -2,17 +2,21 @@
 session_start();
 require("conexion.php");
 
-$idObraAntiguo = $_POST["id_obra_antiguo"];
+$idObra = $_POST["id_obra"];
+$idActuacion = $_POST["id_actuacion"];
+$lugar = $_POST["lugar"];
+$fecha = $_POST["fecha"];
+$idActuacionAntigua = $_POST["id_actuacion_antiguo"];
 
 // Actualiza un cliente con un determinado DNI
 // UPDATE cliente SET dni="12345", nombre="Antonio", direccion="Campanillas" WHERE dni="567"
 
-$consulta = mysqli_query($conexion, "SELECT COUNT(*) AS id_obra FROM obra WHERE id_obra = '$idObra'");
+$consulta = mysqli_query($conexion, "SELECT COUNT(*) AS id_actuacion FROM actuacion WHERE id_actuacion = '$idActuacion'");
 $registro = mysqli_fetch_array($consulta);
 
 // Si el dni coincide con el existente o si no existe, se puede modificar
-if (($idObra == $idObraAntiguo) || ($registro["id_obra"] == "0")) {
-  $actualizacion = "UPDATE obra SET titulo='$titulo', anio='$anio', compositor='$compositor', libretista='$libretista' WHERE id_obra='$idObraAntiguo'";
+if (($idActuacion == $idActuacionAntigua) || ($registro["id_actuacion"] == "0")) {
+  $actualizacion = "UPDATE actuacion SET id_actuacion='$idActuacion', id_obra='$idObra', lugar='$lugar', fecha='$fecha' WHERE id_actuacion='$idActuacionAntigua'";
   mysqli_query($conexion, $actualizacion);
 
 } else if ($registro["id_obra"] == "1") { // Si existe ese dni (y no es el mismo), error: ya existe otro cliente con ese dni
