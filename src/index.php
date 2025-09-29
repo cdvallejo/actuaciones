@@ -24,7 +24,7 @@ require("ordenar.php");
     <div class="card">
 
       <div id="titulo">
-        <h1 class="text-center">Actuaciones y obras</h1>
+        <h1 class="text-center">Obras</h1>
       </div>
 
       <?php
@@ -34,7 +34,7 @@ require("ordenar.php");
       $anio = $_POST["anio"] ?? "";
       $compositor = $_POST["compositor"] ?? "";
       $libretista = $_POST["libretista"] ?? "";
-      $idObraAntiguo = $_POST["id_obraAntiguo"] ?? "";
+      $idObraAntiguo = $_POST["id_obra_antiguo"] ?? "";
 
       if (!empty($_SESSION["error"])) {
         $error = $_SESSION["error"]; // Guardamos el valor
@@ -50,10 +50,10 @@ require("ordenar.php");
 
       <table class="table table-striped">
         <tr>
-          <th><a href="?orderby=dni">Título ⬆</a></th>
-          <th><a href="?orderby=nombre">Año ⬆</a></th>
-          <th><a href="?orderby=direccion">Compositor ⬆</a></th>
-          <th><a href="?orderby=dni">Letrista ⬆</a></th>
+          <th><a href="?orderby=titulo">Título ⬆</a></th>
+          <th><a href="?orderby=anio">Año ⬆</a></th>
+          <th><a href="?orderby=compositor">Compositor ⬆</a></th>
+          <th><a href="?orderby=libretista">Libretista ⬆</a></th>
           <th></th>
           <th></th>
         </tr>
@@ -64,15 +64,16 @@ require("ordenar.php");
           if (($accion == "modificar") && ($idObra == $registro["id_obra"])) {
             // Fila que queremos modificar
         ?>
+        
             <tr class="fila-modificable">
               <form action="modificar.php" method="post">
                 <td><input type="text" name="titulo" value="<?= $registro["titulo"] ?>"></td>
                 <td><input type="text" name="anio" value="<?= $registro["anio"] ?>"></td>
                 <td><input type="text" name="compositor" value="<?= $registro["compositor"] ?>"></td>
                 <td><input type="text" name="libretista" value="<?= $registro["libretista"] ?>"></td>
-                <td><input type="hidden" name="idObra" value="<?= $registro["id_obra"] ?>"></td>
+                <input type="hidden" name="id_obra" value="<?= $registro["id_obra"] ?>">
                 <td>
-                  <input type="hidden" name="idObraAntiguo" value="<?= $registro["id_obraAntiguo"] ?>">
+                  <input type="hidden" name="id_obra_antiguo" value="<?= $registro["id_obra"] ?>">
                   <button type="submit" class="btn btn-success">
                     <i class="bi bi-check-lg"></i>
                     Aceptar
@@ -101,7 +102,7 @@ require("ordenar.php");
                 <!-- Formulario para borrar: redirige la acción a borrar.php -->
                 <form action="borrar.php" method="post">
                   <input type="hidden" name="idObra" value="<?= $registro["id_obra"] ?>">
-                  <button  onclick="return confirmarBorrado('<?= $registro['id_obra'] ?>')"
+                  <button  onclick="return confirmarBorrado('<?= $registro['titulo'] ?>')"
                     type="submit"
                     class="btn btn-danger"
                     <?= $accion == "modificar" ? "disabled" : "" ?>>
@@ -113,7 +114,7 @@ require("ordenar.php");
               <td>
                 <form action="#" method="post">
                   <input type="hidden" name="accion" value="modificar">
-                  <input type="hidden" name="idObra" value="<?= $registro["id_obra"] ?>">
+                  <input type="hidden" name="id_obra" value="<?= $registro["id_obra"] ?>">
                   <button
                     type="submit"
                     class="btn btn-primary"
@@ -134,7 +135,7 @@ require("ordenar.php");
           <tr>
             <form action="agregar.php" method="post">
               <td><input type="text" name="titulo" required></td>
-              <td><input type="text" name="anio" required></td>
+              <td><input type="number" name="anio" required></td>
               <td><input type="text" name="compositor" required></td>
               <td><input type="text" name="libretista" required></td>
               <td>
