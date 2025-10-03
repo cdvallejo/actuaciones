@@ -31,7 +31,7 @@ $consultaObra = mysqli_query($conexion, "SELECT id_obra, titulo, anio, composito
   ?>
 
       <tr class="fila-modificable">
-        <form action="modificar.php" method="post">
+        <form action="modificarObra.php" method="post">
           <td><input type="text" name="titulo" value="<?= $registro["titulo"] ?>"></td>
           <td><input type="text" name="anio" value="<?= $registro["anio"] ?>"></td>
           <td><input type="text" name="compositor" value="<?= $registro["compositor"] ?>"></td>
@@ -65,7 +65,7 @@ $consultaObra = mysqli_query($conexion, "SELECT id_obra, titulo, anio, composito
         <td><?= $registro["libretista"] ?></td>
         <td>
           <!-- Formulario para borrar: redirige la acción a borrar.php -->
-          <form action="borrar.php" method="post">
+          <form action="borrarObra.php" method="post">
             <input type="hidden" name="idObra" value="<?= $registro["id_obra"] ?>">
             <button onclick="return confirmarBorrado('<?= $registro['titulo'] ?>')"
               type="submit"
@@ -98,7 +98,7 @@ $consultaObra = mysqli_query($conexion, "SELECT id_obra, titulo, anio, composito
     ?>
     <!-- tr>td*4>input -->
     <tr>
-      <form action="agregar.php" method="post">
+      <form action="agregarObra.php" method="post">
         <td><input type="text" name="titulo" required></td>
         <td><input type="number" name="anio" min="1400" required></td>
         <td><input type="text" name="compositor" required></td>

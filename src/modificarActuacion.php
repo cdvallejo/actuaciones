@@ -14,7 +14,7 @@ $idActuacionAntigua = $_POST["id_actuacion_antiguo"];
 $consulta = mysqli_query($conexion, "SELECT COUNT(*) AS id_actuacion FROM actuacion WHERE id_actuacion = '$idActuacion'");
 $registro = mysqli_fetch_array($consulta);
 
-// Si el dni coincide con el existente o si no existe, se puede modificar
+// Esta comprobación controla que no se pueda añadir un id existente. En realidad no haría falta, pues el usuario no asigna id: la propia base de datos lo controla incremental
 if (($idActuacion == $idActuacionAntigua) || ($registro["id_actuacion"] == "0")) {
   $actualizacion = "UPDATE actuacion SET id_actuacion='$idActuacion', id_obra='$idObra', lugar='$lugar', fecha='$fecha' WHERE id_actuacion='$idActuacionAntigua'";
   mysqli_query($conexion, $actualizacion);
