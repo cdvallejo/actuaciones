@@ -13,7 +13,9 @@ Elegí este tema porque quería trasladar para este ejercicio un caso real: como
 De este modo, he sentido que podía ser capaz de hacer (con ayuda del profesor) un ejercicio que se puede aplicar en la vida real. Por supuesto, se pueden añadir más campos y mejorar
 muchas cosas, pero en la esencial funciona: saber cuáles son las próximas actuaciones y las ya realizadas, siempre a partir de unas obras catalogadas.
 
-<img width="900" height="auto" alt="1" src="https://github.com/user-attachments/assets/32d43992-8194-4b0b-8587-35a1b4498f33" />
+<p align="center">
+  <img width="600" alt="1" src="https://github.com/user-attachments/assets/32d43992-8194-4b0b-8587-35a1b4498f33" />
+</p>
 
 ---
 * Realizado para la clase "Desarrollo de aplicaciones web en el entorno servidor".
