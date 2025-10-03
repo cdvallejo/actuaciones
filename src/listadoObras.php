@@ -15,10 +15,10 @@ $consultaObra = mysqli_query($conexion, "SELECT id_obra, titulo, anio, composito
 
 <table class="table table-striped">
   <tr>
-    <th><a href="?orderby=titulo">Título ⬆</a></th>
-    <th><a href="?orderby=anio">Año ⬆</a></th>
-    <th><a href="?orderby=compositor">Compositor ⬆</a></th>
-    <th><a href="?orderby=libretista">Libretista ⬆</a></th>
+    <th><a href="?orderbyObras=titulo">Título ⬆</a></th>
+    <th><a href="?orderbyObras=anio">Año ⬆</a></th>
+    <th><a href="?orderbyObras=compositor">Compositor ⬆</a></th>
+    <th><a href="?orderbyObras=libretista">Libretista ⬆</a></th>
     <th></th>
     <th></th>
   </tr>
@@ -100,7 +100,7 @@ $consultaObra = mysqli_query($conexion, "SELECT id_obra, titulo, anio, composito
     <tr>
       <form action="agregar.php" method="post">
         <td><input type="text" name="titulo" required></td>
-        <td><input type="number" name="anio" required></td>
+        <td><input type="number" name="anio" min="1400" required></td>
         <td><input type="text" name="compositor" required></td>
         <td><input type="text" name="libretista" required></td>
         <td>

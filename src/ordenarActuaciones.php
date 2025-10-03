@@ -1,10 +1,9 @@
 <?php
-
-// por defecto ordena por dni
+// por defecto ordena por titulo
 $orderActuaciones = 'titulo';
 
-if (isset($_GET['orderby'])) {
-    $orderActuaciones = $_GET['orderby'];
+if (isset($_GET['orderbyActuaciones'])) {
+    $orderActuaciones = $_GET['orderbyActuaciones'];
 }
 
 return $orderActuaciones;

@@ -16,9 +16,9 @@ $consultaTitulos = mysqli_query($conexion, "SELECT id_obra, titulo FROM obra ORD
 
 <table class="table table-striped">
   <tr>
-    <th><a href="?orderby=titulo">Título ⬆</a></th>
-    <th><a href="?orderby=lugar">Lugar ⬆</a></th>
-    <th><a href="?orderby=fecha">Fecha ⬆</a></th>
+    <th><a href="?orderbyActuaciones=titulo">Título ⬆</a></th>
+    <th><a href="?orderbyActuaciones=lugar">Lugar ⬆</a></th>
+    <th><a href="?orderbyActuaciones=fecha">Fecha ⬆</a></th>
     <th></th>
     <th></th>
     <th></th>
@@ -73,8 +73,7 @@ $consultaTitulos = mysqli_query($conexion, "SELECT id_obra, titulo FROM obra ORD
       <tr>
         <td><?= $registro["titulo"] ?></td>
         <td><?= $registro["lugar"] ?></td>
-        <td><?= $registro["fecha"] ?></td>
-        <td></td>
+        <td><?= date("d-m-Y", strtotime($registro["fecha"])) ?></td><td></td> <!-- Para que salga en formato español: d-m-Y -->
         <td>
           <!-- Formulario para borrar: redirige la acción a borrar.php -->
           <form action="borrarActuacion.php" method="post">
