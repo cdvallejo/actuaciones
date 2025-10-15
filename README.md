@@ -10,8 +10,7 @@ En ella el usuario puede consultar el listado de obras y de actuaciones de una c
 Puedes probar la aplicación en este [enlace al repo web](https://carlos-vallejo.alwaysdata.net/actuaciones/).
 
 Elegí este tema porque quería trasladar para este ejercicio un caso real: como miembro de una compañía lírica, anoto manualmente en una libreta las actuaciones que realizo.
-De este modo, he sentido que podía ser capaz de hacer (con ayuda del profesor) un ejercicio que se puede aplicar en la vida real. Por supuesto, se pueden añadir más campos y mejorar
-muchas cosas, pero en la esencial funciona: saber cuáles son las próximas actuaciones y las ya realizadas, siempre a partir de unas obras catalogadas.
+De este modo, quería, con ayuda del profesor, afrontar un ejercicio que se pudiera aplicar en mi vida real. Por supuesto, podrían añadirse más campos y mejoras, pero en lo esencial funciona: saber cuáles son las próximas actuaciones y las ya realizadas, siempre a partir de unas obras catalogadas.
 
 <p align="center">
   <img width="600" alt="1" src="https://github.com/user-attachments/assets/32d43992-8194-4b0b-8587-35a1b4498f33" />
