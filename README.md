@@ -1,6 +1,6 @@
 # 🎭 Aplicación web *Actuaciones*
 
-Aplicación web con funcionalidades **CRUD** (*Create, Read, Update, Delete*) desarrollada con **PHP**, **HTML**, **CSS** y algo de **JavaScript**.  
+Aplicación web con funcionalidades **CRUD** (*Create, Read, Update, Delete*) desarrollada con **PHP**, **HTML**, **CSS**, **Bootstrap** y algo de **JavaScript**.  
 Conectada a una base de datos **MySQL**, gestionada mediante **phpMyAdmin**, permite consultar y gestionar el listado de **obras** y **actuaciones** de una compañía lírica.
 
 🔗 Puedes probar la aplicación aquí:  
