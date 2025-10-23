@@ -54,8 +54,6 @@ Con ayuda del profesor, quise crear una herramienta práctica para **gestionar l
 
 ---
 
-## ⭐ Contribuye
-
 Si te ha gustado este proyecto, ¡no olvides dejar una ⭐ en el repositorio!
 
 ---
